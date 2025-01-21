@@ -1,0 +1,27 @@
+[package]
+name = "future-metrics"
+version = "0.1.0"
+edition = "2021"
+authors = ["Ivan Reshetnikov"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/heilhead/future-metrics.git"
+homepage = "https://github.com/heilhead/future-metrics.git"
+description = "Instrument futures with execution metrics"
+
+[dependencies]
+pin-project = "1"
+
+[dev-dependencies]
+tokio = { version = "1", default-features = false, features = [
+    "rt-multi-thread",
+    "time",
+    "macros",
+] }
+opentelemetry = { version = "0.27", features = ["metrics"] }
+opentelemetry_sdk = { version = "0.27", features = ["metrics", "rt-tokio"] }
+opentelemetry-prometheus = "0.27"
+prometheus = { version = "0.13", default-features = false }
+rand = "0.8"
+metrics = "0.24"
+metrics-exporter-prometheus = "0.16"
